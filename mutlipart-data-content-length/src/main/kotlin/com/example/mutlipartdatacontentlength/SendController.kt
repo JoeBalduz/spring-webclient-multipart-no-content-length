@@ -17,4 +17,12 @@ class SendController(private val uploadService: UploadService) {
     fun sendFile(@RequestParam(required = false) sendToContentLengthRequiredRoute: Boolean?): Mono<String> {
         return uploadService.sendFile(sendToContentLengthRequiredRoute ?: true)
     }
+
+    /**
+     * Calls the method to send a file using RestTemplate
+     */
+    @GetMapping("/sendFileWithRestTemplate")
+    fun sendFileWithRestTemplate(): Mono<String> {
+        return uploadService.sendFileRestTemplate()
+    }
 }
