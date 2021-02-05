@@ -19,7 +19,7 @@ class ReceiveController {
         @RequestPart command: String,
         @RequestPart myFile: Mono<FilePart>
     ): Mono<String> {
-        return Mono.just("Received file")
+        return Mono.just("Received file with content-length as $contentLength")
     }
 
     /**
